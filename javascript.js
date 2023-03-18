@@ -52,49 +52,56 @@ function round(player, computer) {
 
 }
 
-function game(num) {
+function game() {
 
     let choices = ['Rock', 'Paper', 'Scissors'];
 
-    for (let i = 0; i < num; i++) {
+    const playerContainer = document.querySelector('.player');
+    const compContainer = document.querySelector('.computer');
+    const result = document.querySelector('.result');
 
-        console.log('Round ' + (i+1) + ':');
-        let playerChoice;
+    const pChoice = document.createElement('h1');
+    const cChoice = document.createElement('h1');
+    
 
-        while (true) {
+    let playerChoice;
 
-            playerChoice = prompt('What do you choose?');
+    while (true) {
 
-            if (setPlayerChoice(playerChoice) === 1) {
-                console.log('Please enter a valid option.');
-            }
+        playerChoice = prompt('What do you choose?');
 
-            else {
-                playerChoice = setPlayerChoice(playerChoice);
-                break;
-            }
+        if (setPlayerChoice(playerChoice) === 1) {
+            console.log('Please enter a valid option.');
+        }
+
+        else {
+            playerChoice = setPlayerChoice(playerChoice);
+            pChoice.textContent = playerChoice;
+            break;
+        }
         
-        }
 
-        let computerChoice = getComputerChoice(choices);
-
-        console.log('Your choice: ' + playerChoice);
-        console.log('Computer choice: ' + computerChoice);
-
-        if (round(playerChoice, computerChoice) === 0) {
-            console.log('dub');
-        }
-
-        else if (round(playerChoice, computerChoice) === 1) {
-            console.log('l');
-        }
-
-        else if (round(playerChoice, computerChoice) === 2) {
-            console.log('draw');
-        }
     }
+
+    playerContainer.appendChild(pChoice);
+
+    let computerChoice = getComputerChoice(choices);
+    cChoice.textContent = computerChoice;
+    compContainer.appendChild(cChoice);
+
+    if (round(playerChoice, computerChoice) === 0) {
+        result.textContent = 'dub';
+    }
+
+    else if (round(playerChoice, computerChoice) === 1) {
+        result.textContent = 'l';
+    }
+
+    else if (round(playerChoice, computerChoice) === 2) {
+        result.textContent = 'draw';
+    }
+
 }
 
 
-let num = prompt('How many rounds?');
-game(num);
+game();
