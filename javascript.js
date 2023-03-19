@@ -3,103 +3,97 @@ function getComputerChoice(choices) {
 }
 
 
-function setPlayerChoice(playerChoice) {
-    if (playerChoice.toUpperCase() === 'ROCK') {
-        playerChoice = 'Rock';
-    }
+// function setPlayerChoice(playerChoice) {
+//     if (playerChoice.toUpperCase() === 'ROCK') {
+//         playerChoice = 'Rock';
+//     }
     
-    else if (playerChoice.toUpperCase() === 'PAPER') {
-        playerChoice = 'Paper';
-    }
+//     else if (playerChoice.toUpperCase() === 'PAPER') {
+//         playerChoice = 'Paper';
+//     }
 
-    else if (playerChoice.toUpperCase() === 'SCISSORS') {
-        playerChoice = 'Scissors';
-    }
+//     else if (playerChoice.toUpperCase() === 'SCISSORS') {
+//         playerChoice = 'Scissors';
+//     }
 
-    else return 1;
+//     else return 1;
 
-    return playerChoice;
+//     return playerChoice;
 
-}
+// }
 
 function round(player, computer) {
 
+    const w = 'dub';
+    const l = 'l';
+    const draw = 'draw';
+
     if (player === 'Rock' && computer == 'Scissors') {
-        return 0;
+        return w;
     }
 
     else if (player === 'Scissors' && computer == 'Paper') {
-        return 0;
+        return w;
     }
 
     else if (player === 'Paper' && computer == 'Rock') {
-        return 0;
+        return w;
     }
 
     if (computer === 'Rock' && player == 'Scissors') {
-        return 1;
+        return l;
     }
 
     else if (computer === 'Scissors' && player == 'Paper') {
-        return 1;
+        return l;
     }
 
     else if (computer === 'Paper' && player == 'Rock') {
-        return 1;
+        return l;
     }
 
-    else return 2;
+    else return draw;
 
 }
 
+
 function game() {
 
-    let choices = ['Rock', 'Paper', 'Scissors'];
-
-    const playerContainer = document.querySelector('.player');
-    const compContainer = document.querySelector('.computer');
-    const result = document.querySelector('.result');
-
-    const pChoice = document.createElement('h1');
-    const cChoice = document.createElement('h1');
-    
-
+    const choices = ['Rock', 'Paper', 'Scissors'];
     let playerChoice;
+    let computerChoice;
 
-    while (true) {
+    let btn1 = document.querySelector('#btn1');
+    let btn2 = document.querySelector('#btn2');
+    let btn3 = document.querySelector('#btn3');
 
-        playerChoice = prompt('What do you choose?');
+    btn1.addEventListener('click', () => {
+        playerChoice = 'Rock';
+        computerChoice = getComputerChoice(choices);
 
-        if (setPlayerChoice(playerChoice) === 1) {
-            console.log('Please enter a valid option.');
-        }
+        console.log(playerChoice);
+        console.log(computerChoice);
+        console.log(round(playerChoice, computerChoice));
+    });
 
-        else {
-            playerChoice = setPlayerChoice(playerChoice);
-            pChoice.textContent = playerChoice;
-            break;
-        }
-        
+    btn2.addEventListener('click', () => {
+        playerChoice = 'Paper';
+        computerChoice = getComputerChoice(choices);
 
-    }
+        console.log(playerChoice);
+        console.log(computerChoice);
+        console.log(round(playerChoice, computerChoice));
+    });
 
-    playerContainer.appendChild(pChoice);
+    btn3.addEventListener('click', () => {
+        playerChoice = 'Scissors';
+        computerChoice = getComputerChoice(choices);
 
-    let computerChoice = getComputerChoice(choices);
-    cChoice.textContent = computerChoice;
-    compContainer.appendChild(cChoice);
+        console.log(playerChoice);
+        console.log(computerChoice);
+        console.log(round(playerChoice, computerChoice));
+    });
 
-    if (round(playerChoice, computerChoice) === 0) {
-        result.textContent = 'dub';
-    }
-
-    else if (round(playerChoice, computerChoice) === 1) {
-        result.textContent = 'l';
-    }
-
-    else if (round(playerChoice, computerChoice) === 2) {
-        result.textContent = 'draw';
-    }
 
 }
 
