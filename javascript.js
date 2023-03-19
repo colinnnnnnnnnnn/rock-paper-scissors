@@ -3,25 +3,6 @@ function getComputerChoice(choices) {
 }
 
 
-// function setPlayerChoice(playerChoice) {
-//     if (playerChoice.toUpperCase() === 'ROCK') {
-//         playerChoice = 'Rock';
-//     }
-    
-//     else if (playerChoice.toUpperCase() === 'PAPER') {
-//         playerChoice = 'Paper';
-//     }
-
-//     else if (playerChoice.toUpperCase() === 'SCISSORS') {
-//         playerChoice = 'Scissors';
-//     }
-
-//     else return 1;
-
-//     return playerChoice;
-
-// }
-
 let playerScore = 0;
 let computerScore = 0;
 
@@ -101,7 +82,6 @@ function game() {
         computerChoice = getComputerChoice(choices);
 
     });
-
 
 
 }
