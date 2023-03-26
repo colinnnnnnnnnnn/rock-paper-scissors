@@ -51,40 +51,43 @@ function round(player, computer) {
 }
 
 
-function game() {
 
-    const choices = ['Rock', 'Paper', 'Scissors'];
-    let playerChoice;
-    let computerChoice;
-
-
-    let btn1 = document.querySelector('#btn1');
-    let btn2 = document.querySelector('#btn2');
-    let btn3 = document.querySelector('#btn3');
-
-    btn1.addEventListener('click', () => {
-        playerChoice = 'Rock';
-        computerChoice = getComputerChoice(choices);
-
-        console.log(round(playerChoice, computerChoice));
-        score.textContent = 'Player score: ' + playerScore + '\r\nComputer score: ' + computerScore;
-
-    });
-
-    btn2.addEventListener('click', () => {
-        playerChoice = 'Paper';
-        computerChoice = getComputerChoice(choices);
-
-    });
-
-    btn3.addEventListener('click', () => {
-        playerChoice = 'Scissors';
-        computerChoice = getComputerChoice(choices);
-
-    });
+const choices = ['Rock', 'Paper', 'Scissors'];
+let playerChoice;
+let computerChoice;
 
 
-}
+let btn1 = document.querySelector('#btn1');
+let btn2 = document.querySelector('#btn2');
+let btn3 = document.querySelector('#btn3');
 
 
-game();
+btn1.addEventListener('click', () => {
+    playerChoice = 'Rock';
+    computerChoice = getComputerChoice(choices);
+
+    console.log(round(playerChoice, computerChoice));
+    score.textContent = 'Player score: ' + playerScore + '\r\nComputer score: ' + computerScore;
+
+
+});
+
+btn2.addEventListener('click', () => {
+    playerChoice = 'Paper';
+    computerChoice = getComputerChoice(choices);
+
+    console.log(round(playerChoice, computerChoice));
+    score.textContent = 'Player score: ' + playerScore + '\r\nComputer score: ' + computerScore;
+
+
+});
+
+btn3.addEventListener('click', () => {
+    playerChoice = 'Scissors';
+    computerChoice = getComputerChoice(choices);
+
+    console.log(round(playerChoice, computerChoice));
+    score.textContent = 'Player score: ' + playerScore + '\r\nComputer score: ' + computerScore;
+
+
+});
